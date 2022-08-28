@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import Survey from './components/Survey';
+import People from './components/People';
+import Starships from './components/Starships';
+import {
+  BrowserRouter,
+  Route,
+  Switch
+} from "react-router-dom";
+import Planets from './components/Planets';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+            <Route path="/people/:id">
+              <Survey/>
+              <People />
+            </Route>
+          <Route  path="/planets/:id">
+            <Survey/>
+            <Planets />
+          </Route>
+          <Route  path="/starships/:id">
+            <Survey/>
+            <Starships />
+          </Route>
+          <Route exact path="/">
+            <Survey />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
