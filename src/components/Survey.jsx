@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const Survey = (props) => {
-    const [option, setOption] = useState("people");
+    const [option, setOption] = useState("");
     const [id, setId] = useState("");
     const history = useHistory();
 
